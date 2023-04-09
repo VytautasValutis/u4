@@ -27,5 +27,7 @@ Route::prefix('clients')->name('clients-')->group(function() {
     Route::get('/create', [CL::class, 'create'])->name('create');
     Route::post('/create', [CL::class, 'store'])->name('store');
     Route::delete('/delete/{client}', [CL::class, 'destroy'])->name('delete');
+    Route::get('/sort/{sort}', [CL::class, 'sort'])->name('sort');
+
 });
 

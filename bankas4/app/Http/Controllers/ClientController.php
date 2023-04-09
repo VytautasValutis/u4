@@ -10,7 +10,45 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all()->sortBy('surname');
-        $request->session()->put('sort', 'a');
+        session(['sort' => 'd']);
+        session(['sortD' => mb_chr(0x21D3)]);
+        return view('clients.index', [
+            'clients' => $clients
+        ]);
+    }
+
+    public function sort($sort)
+    {
+        $sortType = session('sort');
+        if($sort == $sortType) $sort = strtolower($sort);
+        session(['sort' => $sort]);
+        session(['sortA' => '']);
+        session(['sortD' => '']);
+        session(['sortE' => '']);
+        if($sort == 'a') {
+            session(['sortA' => mb_chr(0x21D3)]);
+            $clients = Client::all()->sortBy('accNr');
+        }
+        if($sort == 'A') {
+            session(['sortA' => mb_chr(0x21D1)]);
+            $clients = Client::all()->sortByDesc('accNr');
+        }
+        if($sort == 'd') {
+            session(['sortD' => mb_chr(0x21D3)]);
+            $clients = Client::all()->sortBy('surname');
+        }
+        if($sort == 'D') {
+            session(['sortD' => mb_chr(0x21D1)]);
+            $clients = Client::all()->sortByDesc('surname');
+        }
+        if($sort == 'e') {
+            session(['sortE' => mb_chr(0x21D3)]);
+            $clients = Client::all()->sortBy('value');
+        }
+        if($sort == 'E') {
+            session(['sortE' => mb_chr(0x21D1)]);
+            $clients = Client::all()->sortByDesc('value');
+        }
         return view('clients.index', [
             'clients' => $clients
         ]);
