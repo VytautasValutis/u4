@@ -5,16 +5,16 @@
         <thead>
             <tr>
                 <th scope="col">
-                    <a href="" style="text-decoration: none;">
-                    Account number <span style="color: red;">a_s</span></a></th>
+                    <a href="{{route('clients-sort', 'A')}}" style="text-decoration: none;">
+                    Account number <span style="color: red;">{{session('sortA')}}</span></a></th>
                 <th scope="col">PID</th>
                 <th scope="col">Name</th>
                 <th scope="col">
-                    <a href="" style="text-decoration: none;">
-                    Surname <span style="color: red;">d_s</span></a></th>
+                    <a href="{{route('clients-sort', 'D')}}" style="text-decoration: none;">
+                    Surname <span style="color: red;">{{session('sortD')}}</span></a></th>
                 <th scope="col">
-                    <a href="" style="text-decoration: none;">
-                    Values <span style="color: red;">e_s</span></a></th>
+                    <a href="{{route('clients-sort', 'E')}}" style="text-decoration: none;">
+                    Values <span style="color: red;">{{session('sortE')}}</span></a></th>
             </tr>
         </thead>
         <tbody>
