@@ -31,6 +31,7 @@
                         <div class="form-text">Clienta account number <span style="color: red">cannot be changed</span></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    @csrf
                 </form>
             </div>
         </div>
