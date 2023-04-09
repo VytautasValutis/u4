@@ -10,6 +10,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all()->sortBy('surname');
+        $request->session()->put('sort', 'a');
         return view('clients.index', [
             'clients' => $clients
         ]);
@@ -30,7 +31,7 @@ class ClientController extends Controller
         $client->accNr = 'LT123456789012345678';
         $client->value = 0;
         $client->save();
-        return redirect()->back();
+        return redirect()->route('clients-index');
     }
 
     public function show(client $client)
@@ -47,6 +48,7 @@ class ClientController extends Controller
     }
     public function destroy(client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('clients-index');
     }
 }
