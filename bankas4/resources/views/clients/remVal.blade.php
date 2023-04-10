@@ -6,11 +6,11 @@
     <div class="col-8 ">
     <div class="card mt-5">
         <div class="card-header lentele-bg">
-            <h1>Add values</h1>
+            <h1>Subtract values</h1>
         </div>
             <div class="card-body">
                 <form action="{{route("clients-update", $client)}}" method="post">
-                    <input type="hidden" name="oper" value="Add">
+                    <input type="hidden" name="oper" value="Rem">
                     <div class="mb-3">
                         <label class="form-label fs-4 w-auto">Client name</label>
                         <input readonly type="text" class="form-control w-50 d-inline-block float-end" name="name" value="{{ $client->name }}">
@@ -32,8 +32,8 @@
                         <input readonly type="text" class="form-control w-50 d-inline-block float-end" name="value" value="{{ $client->value }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fs-4 w-auto">The amount of added feed</label>
-                        <input type="text" class="form-control w-50 d-inline-block float-end" name="addValue" value="0">
+                        <label class="form-label fs-4 w-auto">The amount of cash to be written off</label>
+                        <input type="text" class="form-control w-50 d-inline-block float-end" name="remValue" value="0">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     @csrf

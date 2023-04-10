@@ -26,10 +26,10 @@
                 <td>{{$v->surname}}</td>
                 <td><b>{{$v->value}}</b></td>
                 <td>
-                    <a href="{{route('clients-editA', $v)}}" class="btn btn-outline-success">Add funds</a>
+                    <a href="{{route('clients-edit', ['Add', $v])}}" class="btn btn-outline-success">Add funds</a>
                 </td>
                 <td>
-                    <a href="" class="btn btn-outline-primary">Deduct funds</a>
+                    <a href="{{route('clients-edit', ['Rem', $v])}}" class="btn btn-outline-primary">Deduct funds</a>
                 </td>
                 <td>
                     <form action="{{route('clients-delete', $v)}}" method="post">

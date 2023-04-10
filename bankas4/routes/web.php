@@ -28,8 +28,8 @@ Route::prefix('clients')->name('clients-')->group(function() {
     Route::post('/create', [CL::class, 'store'])->name('store');
     Route::delete('/delete/{client}', [CL::class, 'destroy'])->name('delete');
     Route::get('/sort/{sort}', [CL::class, 'sort'])->name('sort');
-    Route::get('/editA/{client}', [CL::class, 'editA'])->name('editA');
-    Route::put('/editA/{client}', [CL::class, 'updateA'])->name('updateA');
+    Route::get('/edit/{oper}/{client}', [CL::class, 'edit'])->name('edit');
+    Route::put('/edit/{client}', [CL::class, 'update'])->name('update');
 
 });
 
