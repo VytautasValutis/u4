@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController as CL;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('clients')->name('clients-')->group(function() {
+    Route::get('/', [CL::class, 'index'])->name('index');
+    Route::get('/create', [CL::class, 'create'])->name('create');
+    Route::post('/create', [CL::class, 'store'])->name('store');
+    Route::delete('/delete/{client}', [CL::class, 'destroy'])->name('delete');
+    Route::get('/sort/{sort}', [CL::class, 'sort'])->name('sort');
+    Route::get('/edit/{oper}/{client}', [CL::class, 'edit'])->name('edit');
+    Route::put('/edit/{client}', [CL::class, 'update'])->name('update');
+
+});
+
