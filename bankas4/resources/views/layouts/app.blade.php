@@ -86,7 +86,7 @@
                 </div>
             </div>
         </nav>
-
+        @include('layouts.errors')
         <main class="py-4">
             @yield('content')
         </main>
