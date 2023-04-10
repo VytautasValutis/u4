@@ -76,6 +76,12 @@ class ClientController extends Controller
     {
         //
     }
+    public function editA(client $client)
+    {
+        return view('clients.addVal', [
+            'client' => $client
+        ]);
+    }
     public function edit(client $client)
     {
         //
