@@ -76,13 +76,32 @@ class ClientController extends Controller
     {
         //
     }
-    public function edit(client $client)
+    // public function editA(client $client)
+    // {
+    //     return view('clients.addVal', [
+    //         'client' => $client
+    //     ]);
+    // }
+    public function edit($oper, client $client)
     {
-        //
+        if($oper == 'Add') return view('clients.addVal', ['client' => $client]);
+        if($oper == 'Rem') return view('clients.remVal', ['client' => $client]);
+        return redirect()->back();
     }
     public function update(Request $request, client $client)
     {
-        //
+        $client->name = $request->name;
+        $client->surname = $request->surname;
+        $client->pid = $request->pid;
+        $client->accNr = $request->accNr;
+        if($request->oper == "Add") {
+            $client->value += $request->addValue;
+        } else {
+            $client->value -= $request->remValue;
+        }
+        $client->save();
+        return redirect()->route('clients-index');
+
     }
     public function destroy(client $client)
     {

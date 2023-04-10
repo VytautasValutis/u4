@@ -27,7 +27,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fs-4">Clients account number</label>
-                        <input readonly type="text" class="form-control" name="accNum" value="<?= $accNr ?? "" ?>">
+                        <input readonly type="text" class="form-control" name="accNr" value="<?= $accNr ?? "" ?>">
                         <div class="form-text">Clienta account number <span style="color: red">cannot be changed</span></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

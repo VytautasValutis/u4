@@ -26,14 +26,10 @@
                 <td>{{$v->surname}}</td>
                 <td><b>{{$v->value}}</b></td>
                 <td>
-                    <form action="" method="post">
-                    <button type="submit" class="btn btn-outline-success">Add funds</button>
-                    </form>
+                    <a href="{{route('clients-edit', ['Add', $v])}}" class="btn btn-outline-success">Add funds</a>
                 </td>
                 <td>
-                    <form action="" method="post">
-                    <button type="submit" class="btn btn-outline-primary">Deduct funds</button>
-                    </form>
+                    <a href="{{route('clients-edit', ['Rem', $v])}}" class="btn btn-outline-primary">Deduct funds</a>
                 </td>
                 <td>
                     <form action="{{route('clients-delete', $v)}}" method="post">
